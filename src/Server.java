@@ -1,11 +1,7 @@
-import com.sun.net.httpserver.HttpServer;
-
-import javax.sound.sampled.Port;
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.net.SocketException;
-import java.util.Date;
 
 public class Server {
 
@@ -44,9 +40,10 @@ public class Server {
                     responsHeaders.println(); // Blank line between headers and content, very important !
                     responsHeaders.flush();
 
-                    responseStream.writeUTF("<h1>Velkommen til miks side<br></h1>"); // Indholdet i responsen
-                    responseStream.writeUTF("<img src=\"https://scontent-cph2-1.xx.fbcdn.net/v/t1.0-9/1512630_189905787881908_1314959272_n.jpg?_nc_cat=102&_nc_sid=85a577&_nc_ohc=mA-9j-u_OJAAX9zStYW&_nc_ht=scontent-cph2-1.xx&oh=f4701bf2f6c2f900da9a82ebade010ab&oe=5F793961\" alt=\"W3Schools.com\">\n");
-                    responseStream.writeUTF("<br><br><br><a href=\"https://github.com/MikPedersen\">Besøg min github via denne tekst!<br></a>");
+                    responseStream.writeBytes("<h1>Velkommen til miks side<br></h1>"); // Indholdet i responsen
+                    responseStream.writeBytes("<h2>Tjek den her flotte fyr.<br></h2>");
+                    responseStream.writeBytes("<img src=\"https://scontent-cph2-1.xx.fbcdn.net/v/t1.0-9/1512630_189905787881908_1314959272_n.jpg?_nc_cat=102&_nc_sid=85a577&_nc_ohc=mA-9j-u_OJAAX9zStYW&_nc_ht=scontent-cph2-1.xx&oh=f4701bf2f6c2f900da9a82ebade010ab&oe=5F793961\" alt=\"W3Schools.com\">\n");
+                    responseStream.writeBytes("<br><br><br><a href=\"https://github.com/MikPedersen\">Bes&oslash;g min github via denne tekst!<br></a>");
                     responseStream.flush();
 
                     // Vi lukker begge streams
